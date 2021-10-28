@@ -1,0 +1,121 @@
+---
+title: 'Submitting tsbox to ropensci'
+author: ['cynkra GmbH']
+date: '10\. Juni 2021'        # 1\. to avoid itemizing
+output:
+  cynkradown::cynkra_slides:
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+    seal: false
+fontsize: 10pt
+lang: english                # ngerman, english, italian, french
+font: frutiger
+wide: false
+colorlinks: false
+logo: true
+header-includes:
+  - \usepackage{parskip}
+---
+class: inverse
+
+# `r rmarkdown::metadata$title`
+
+
+<br>
+
+# Christoph Sax
+
+
+---
+
+# Tsbox
+
+- converts time series objects
+
+    `ts_xts(fdeaths)`, `ts_ts(ts_xts(fdeaths))`, `ts_df(fdeaths)`
+
+
+- provides a standard toolkit that works on all time series
+
+    `ts_pc(fdeaths)`, `ts_pc(ts_xts(fdeaths))`
+
+
+- makes existing functions ts-boxable
+
+    `ts_forecast(fdeaths)`
+
+
+
+---
+
+# First Steps
+
+- Step 0: Get familar with ropensci **6h**
+
+- Step 1: pkgcheck Time spent: **6h**
+
+- Step 2: Pre-submission inquiry: **2h**
+
+- Step 3: autotest **12h**
+
+
+
+
+---
+
+# Applying Standards
+
+- Use the srr package for standards documentation
+
+- Complying with standards time consuming
+
+- I started on Monday and got finished with all standards on Friday
+
+- Around **30h**
+
+
+
+---
+
+# Time Consuming Standards
+
+> {G1.4a} *All internal (non-exported) functions should also be documented in standard [`roxygen2`](https://roxygen2.r-lib.org/) format, along with a final `@noRd` tag to suppress automatic generation of `.Rd` files.*
+
+This took me almost a day. This certainly helped to make the code easier to understand, also for myself.
+
+> {G5.2} *Appropriate error and warning behaviour of all functions should be explicitly demonstrated through tests.*
+
+This took me more than a day. I spotted (and fixed) a few problems with the errors. Also improved error messages.
+
+
+
+
+---
+
+# Non-Applying Standards
+
+> {TS3.0} *Provide tests to demonstrate at least one case in which errors widen appropriately with forecast horizon.*
+
+- tsbox contains `ts_forecast()` mainly to showcase how function from other packages can be wrapped as a ts-boxable function.
+
+- Guidelines on what is 'non-applying'?
+
+
+---
+
+# Controversial Standards
+
+> {TS5.1} *When representing results in temporal domain(s), ensure that one axis is clearly labelled "time" (or equivalent), with continuous units.*
+
+- Many newspaper outlets, such as Economist or Financial Times, don't do it.
+
+- Is there a better way to lead a meta-discussion?
+
+
+---
+class: inverse, middle, center
+
+# Thanks
+
